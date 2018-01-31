@@ -92,7 +92,31 @@ point =>
   | Game(g) => scoreWhenGame(g)
   };
 
-  let newGame = Points({playerOne: Love, playerTwo: Love});
 
   /* Exercice To do : Developper 3 fonctions :
   string_of_player , string_of_point, string_of_score */
+  let string_of_player = player =>
+    switch player {
+    | PlayerOne => "PlayerOne"
+    | PlayerTwo => "PlayerTwo"
+};
+
+let string_of_point = point =>
+  switch point{
+  | Love => "0"
+  | Fifteen => "15"
+  | Thirty => "30"
+  | Forty => "40"
+  };
+
+let string_of_score = score =>
+  switch score{
+  | Points(p) => string_of_point(p.playerOne) ++ "-" ++ string_of_point(p.playerTwo)
+  | Forty(f) => "40 - " ++ string_of_point(f.otherPlayerPoint)
+  | Deuce => "40 - 40"
+  | Advantage(a) => "AVANTAGE "++ string_of_player(a)
+  | Game(g) => "JEU " ++ string_of_player(g)
+  };
+
+let newGame = Points({playerOne: Love, playerTwo: Love});
+print_endline(string_of_score(newGame));
