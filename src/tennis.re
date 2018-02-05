@@ -119,4 +119,3 @@ let string_of_score = score =>
   };
 
 let newGame = Points({playerOne: Love, playerTwo: Love});
-print_endline(string_of_score(newGame));
