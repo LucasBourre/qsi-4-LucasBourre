@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node lib/js/src/demo.js",
+    "start": "node src/index.js",
     "clean": "bsb -clean-world",
     "build": "bsb -make-world",
     "watch": "concurrently -k -n bsb,jest,webpack -c magenta,green,grey \"bsb -make-world -w\" \"jest --watch\" \"webpack --mode development -w\" ",
